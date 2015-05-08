@@ -7,6 +7,7 @@
 //
 
 #include "CFrontEnd.hpp"
+#include "GUIMenu/CButtonWidget.hpp"
 
 CFrontEnd::CFrontEnd() : CGUIMenu()
 {
@@ -17,11 +18,11 @@ CFrontEnd::CFrontEnd() : CGUIMenu()
     float yPos = 200.0f;
     float yOffset = 70.0f;
     
-    AddWidget(CWidget(xPos, yPos, width, height, "Play"));
+    AddWidget(new CButtonWidget(xPos, yPos, width, height, "Play"));
     yPos += yOffset;
-    AddWidget(CWidget(xPos, yPos, width, height, "Options"));
+    AddWidget(new CButtonWidget(xPos, yPos, width, height, "Options"));
     yPos += yOffset;
-    AddWidget(CWidget(xPos, yPos, width, height, "Exit"));
+    AddWidget(new CButtonWidget(xPos, yPos, width, height, "Exit"));
     yPos += yOffset;
     
 }

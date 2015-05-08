@@ -13,7 +13,8 @@
 
 enum EMenuTestLocation
 {
-    kGameLocationPong
+    kGameLocationPong,
+    kGameLocationFrontEnd
 };
 
 class CMenuTest : public CGame

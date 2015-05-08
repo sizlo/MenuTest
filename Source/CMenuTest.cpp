@@ -8,6 +8,7 @@
 
 #include "CMenuTest.hpp"
 #include "CPong.hpp"
+#include "CFrontEnd.hpp"
 
 CMenuTest * CMenuTest::Get()
 {
@@ -39,6 +40,11 @@ void CMenuTest::GoToLocation(int theLocation, std::string filename)
         case kGameLocationPong:
             DEBUG_LOG("Pong requested");
             mCurrentLocation = new CPong();
+            break;
+            
+        case kGameLocationFrontEnd:
+            DEBUG_LOG("Front end requested");
+            mCurrentLocation = new CFrontEnd();
             break;
             
         default:

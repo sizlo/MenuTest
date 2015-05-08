@@ -11,7 +11,7 @@
 int main(int argc, char **argv)
 {
     CMenuTest theGame;
-    theGame.Init(kGameLocationPong);
+    theGame.Init(kGameLocationFrontEnd);
     int returnCode = theGame.Run();
     theGame.Cleanup();
     

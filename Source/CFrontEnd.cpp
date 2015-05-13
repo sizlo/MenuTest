@@ -18,11 +18,11 @@ CFrontEnd::CFrontEnd() : CGUIMenu()
     float yPos = 200.0f;
     float yOffset = 70.0f;
     
-    AddWidget(new CButtonWidget(xPos, yPos, width, height, "Play"));
+    AddWidget(new CButtonWidget(xPos, yPos, width, height, "Play", std::bind(&CFrontEnd::HandlePlayButton, this)));
     yPos += yOffset;
-    AddWidget(new CButtonWidget(xPos, yPos, width, height, "Options"));
+    AddWidget(new CButtonWidget(xPos, yPos, width, height, "Options", std::bind(&CFrontEnd::HandleOptionsButton, this)));
     yPos += yOffset;
-    AddWidget(new CButtonWidget(xPos, yPos, width, height, "Exit"));
+    AddWidget(new CButtonWidget(xPos, yPos, width, height, "Exit", std::bind(&CFrontEnd::HandleExitButton, this)));
     yPos += yOffset;
     
 }
@@ -30,4 +30,19 @@ CFrontEnd::CFrontEnd() : CGUIMenu()
 CFrontEnd::~CFrontEnd()
 {
     
+}
+
+void CFrontEnd::HandlePlayButton()
+{
+    DEBUG_LOG("Play button pressed");
+}
+
+void CFrontEnd::HandleOptionsButton()
+{
+    DEBUG_LOG("Options button pressed");
+}
+
+void CFrontEnd::HandleExitButton()
+{
+    DEBUG_LOG("Exit button pressed");
 }

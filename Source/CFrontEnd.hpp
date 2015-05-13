@@ -16,6 +16,10 @@ class CFrontEnd : public CGUIMenu
 public:
     CFrontEnd();
     ~CFrontEnd();
+private:
+    void HandlePlayButton();
+    void HandleOptionsButton();
+    void HandleExitButton();
 };
 
 #endif /* defined(__MenuTest__CFrontEnd__) */

@@ -28,30 +28,22 @@ void CMenuTest::InitialiseOptions()
 
 void CMenuTest::GoToLocation(int theLocation, std::string filename)
 {
-    // If we're already in a location leave it
-    if (mCurrentLocation != NULL)
-    {
-        mCurrentLocation->Exit();
-        SAFE_DELETE(mCurrentLocation);
-    }
-    
+    // Set up the next location
     switch (theLocation)
     {
         case kGameLocationPong:
             DEBUG_LOG("Pong requested");
-            mCurrentLocation = new CPong();
+            mNextLocation = new CPong();
             break;
             
         case kGameLocationFrontEnd:
             DEBUG_LOG("Front end requested");
-            mCurrentLocation = new CFrontEnd();
+            mNextLocation = new CFrontEnd();
             break;
             
         default:
             DEBUG_LOG("Unimplemented game location - going to dummy location");
-            mCurrentLocation = new CDummyGameLocation();
+            mNextLocation = new CDummyGameLocation();
             break;
     }
-    
-    mCurrentLocation->Enter();
 }

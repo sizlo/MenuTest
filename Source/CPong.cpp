@@ -11,9 +11,13 @@
 #include "CMessageBroadcaster.hpp"
 #include "GameOptions.hpp"
 #include "MathsUtilities.hpp"
+#include "CPauseMenu.hpp"
 
 CPong::CPong()
 {
+    mPaused = false;
+    mPauseMenu = new CPauseMenu(this);
+
     mPlayer1 = CConvexShape(4);
     mPlayer1.setPoint(0, CVector2f(-20.0f, -40.0f));
     mPlayer1.setPoint(1, CVector2f(20.0f, -40.0f));
@@ -47,11 +51,13 @@ CPong::CPong()
 
 CPong::~CPong()
 {
-    
+    SAFE_DELETE(mPauseMenu);
 }
 
 void CPong::Update(CTime elapsedTime)
 {
+    if (mPaused) return;
+
     if (CKeyboard::isKeyPressed(CKeyboard::W))
     {
         mPlayer1.move(0.0f, -mPlayer1Speed * elapsedTime.asSeconds());
@@ -147,12 +153,18 @@ void CPong::Exit()
 bool CPong::HandleMessage(CEvent e)
 {
     bool theResult = false;
+
+    if (mPaused) return theResult;
     
     if (e.type == CEvent::KeyPressed)
     {
         if (e.key.code == CKeyboard::R)
         {
             InitialiseBallVel();
+        }
+        else if (e.key.code == CKeyboard::Escape)
+        {
+            PauseGame();
         }
     }
     
@@ -170,4 +182,16 @@ void CPong::InitialiseBallVel()
     mBallVelocity *= mBallSpeed;
     
     mBall.setPosition(GameOptions::viewWidth / 2.0f, GameOptions::viewHeight / 2.0f);
+}
+
+void CPong::PauseGame()
+{
+    mPaused = true;
+    mPauseMenu->Enter();
+}
+
+void CPong::UnpauseGame()
+{
+    mPaused = false;
+    mPauseMenu->Exit();
 }

@@ -14,6 +14,8 @@
 #include "CGameLocation.hpp"
 #include "CMessageListener.hpp"
 
+class CPauseMenu;
+
 class CPong :   public CUpdateable,
                 public CRenderable,
                 public CGameLocation,
@@ -30,10 +32,13 @@ public:
     void Exit();
     
     bool HandleMessage(CEvent e);
-    
-private:
+
     void InitialiseBallVel();
+
+    void PauseGame();
+    void UnpauseGame();
     
+private:   
     CConvexShape mPlayer1;
     CConvexShape mPlayer2;
     CConvexShape mBall;
@@ -43,6 +48,9 @@ private:
     float mBallSpeed;
     
     CVector2f mBallVelocity;
+
+    bool mPaused;
+    CPauseMenu *mPauseMenu;
 };
 
 #endif /* defined(__MenuTest__CPong__) */

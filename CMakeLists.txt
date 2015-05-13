@@ -55,6 +55,8 @@ add_executable(MenuTest MACOSX_BUNDLE
   Source/CFrontEnd.hpp
   Source/Main.cpp
   Source/MenuTest-Prefix.pch
+  Source/CPauseMenu.cpp
+  Source/CPauseMenu.hpp
   ${RESOURCE_FILES}
 )
 

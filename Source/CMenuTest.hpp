@@ -25,7 +25,7 @@ public:
     CMenuTest();
     
     void InitialiseOptions();
-    void GoToLocation(int theLocation, std::string filename);
+    void GoToLocation(int theLocation, std::string filename = std::string());
 };
 
 #endif /* defined(__MenuTest__CMenuTest__) */

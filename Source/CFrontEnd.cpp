@@ -9,6 +9,7 @@
 #include "CFrontEnd.hpp"
 #include "GUIMenu/CButtonWidget.hpp"
 #include "CMenuTest.hpp"
+#include "CPong.hpp"
 
 CFrontEnd::CFrontEnd() : CGUIMenu()
 {
@@ -36,7 +37,7 @@ CFrontEnd::~CFrontEnd()
 void CFrontEnd::HandlePlayButton()
 {
     DEBUG_LOG("Play button pressed");
-    CMenuTest::Get()->GoToLocation(kGameLocationPong);
+    CMenuTest::Get()->PushGameLocation(new CPong());
 }
 
 void CFrontEnd::HandleOptionsButton()

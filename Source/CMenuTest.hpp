@@ -11,12 +11,6 @@
 
 #include "CGame.hpp"
 
-enum EMenuTestLocation
-{
-    kGameLocationPong,
-    kGameLocationFrontEnd
-};
-
 class CMenuTest : public CGame
 {
 public:

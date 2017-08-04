@@ -9,6 +9,7 @@
 #include "CPauseMenu.hpp"
 #include "GUIMenu/CButtonWidget.hpp"
 #include "CMenuTest.hpp"
+#include "CFrontEnd.hpp"
 
 CPauseMenu::CPauseMenu(CPong *parent) : CGUIMenu()
 {
@@ -49,8 +50,8 @@ void CPauseMenu::HandleRestartButton()
 
 void CPauseMenu::HandleExitButton()
 {
-    CMenuTest::Get()->GoToLocation(kGameLocationFrontEnd);
-    Exit();
+    mParentGame->UnpauseGame();
+    CMenuTest::Get()->PopGameLocation();
 }
 
 void CPauseMenu::HandleExitGameButton()

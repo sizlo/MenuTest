@@ -7,11 +7,12 @@
 //
 
 #include "CMenuTest.hpp"
+#include "CFrontEnd.hpp"
 
 int main(int argc, char **argv)
 {
     CMenuTest theGame;
-    theGame.Init(kGameLocationFrontEnd);
+    theGame.Init(new CFrontEnd());
     int returnCode = theGame.Run();
     theGame.Cleanup();
     

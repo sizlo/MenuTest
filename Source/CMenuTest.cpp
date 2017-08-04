@@ -25,25 +25,3 @@ void CMenuTest::InitialiseOptions()
     GameOptions::viewHeight = 720;
     GameOptions::viewWidth = 1280;
 }
-
-void CMenuTest::GoToLocation(int theLocation, std::string filename)
-{
-    // Set up the next location
-    switch (theLocation)
-    {
-        case kGameLocationPong:
-            DEBUG_LOG("Pong requested");
-            mNextLocation = new CPong();
-            break;
-            
-        case kGameLocationFrontEnd:
-            DEBUG_LOG("Front end requested");
-            mNextLocation = new CFrontEnd();
-            break;
-            
-        default:
-            DEBUG_LOG("Unimplemented game location - going to dummy location");
-            mNextLocation = new CDummyGameLocation();
-            break;
-    }
-}
